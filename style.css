@@ -1,0 +1,185 @@
+*{
+    margin:  0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+    font-family: 'lato' , sans-serif;
+}
+body{
+    background-color: #696969;
+}
+
+.conteudo{ 
+    display: flex; 
+    margin-top: 50px; 
+    justify-content:space-around;  
+    align-items:center;  
+       
+}
+.calendario{
+    flex-basis: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+ .calendario header{
+    
+    width: 100%;
+}
+#calendario-ano{
+    margin-top: 12px;
+}
+h2{
+    margin: 0 100px;
+    font-size: 32px;   
+    text-transform: uppercase;
+    text-align: center;
+    
+    
+}
+#qualquercoisa{
+    display: inline-flex;
+    align-items: center;
+}
+.btn-ant,.btn-prox{ 
+
+    height: 26px; 
+    width: 26px;
+    border: 2px solid #cbd1d2;
+    border-radius: 50%;
+    color: #cbd1d2;
+    font-size: 16px;
+    font-weight: bold;
+}
+.btn-ant:hover,.btn-prox:hover{
+    background: #cbd1d2;
+    color: #f9f9f9;
+}
+.btn-ant{
+    left: 80px;
+}
+.btn-prox{
+    right: 80px;
+}
+.calendario table{
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+.calendario thead{
+    background: #696969;
+    font-weight: 600;
+    text-transform: uppercase;
+    
+}
+.calendario thead td{
+    height: 67.4px;
+}
+
+
+.calendario td{
+    border: 1px solid #cbd1d2;
+    height: 70px;
+    text-align: center;
+    width: 71.4px;
+}
+.calendario tbody td{
+    cursor: pointer;
+}
+.calendario tbody td:hover{
+    background: #C0C0C0;
+}
+.calendario table .dia-atual{
+    background: #00addf;
+    color: #f9f9f9;
+}
+.calendario .mes-anterior,.calendario .proximo-mes{
+    color: #cbd1d2;
+}
+.calendario .mes-anterior:hover,.calendario .proximo-mes:hover{
+    background: #98a0a0;
+}
+.event{
+    display: relative;
+}
+.event:after{
+    content: '';
+    width: 7px;
+    height: 7px;
+    left: 50%;
+    bottom: 7px;
+    margin: -3.5px 0 0 -3.5px;
+    background: orange;
+    display: block;    
+    border-radius: 50%;
+}
+.event:hover::after{
+    background: #f9f9f9;
+}
+.event.dia-atual:after{
+    background: #f9f9f9;
+}
+/*FINAL CALENDARIO*/
+
+.lista {   
+   background: #DCDCDC;
+   padding: 20px;
+   border-radius: 12px;
+   max-width: 30%;
+}
+#listatarefa{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    
+}
+#listatarefa li{
+    padding: 20px;
+    background: #98a0a0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px;
+}
+
+/*FINAL LISTA*/
+
+form{
+    display: flex;
+    flex-direction: column;        
+    background: #DCDCDC;
+    border-radius: 12px;   
+    gap: 10px;    
+    width: 20%;  
+    align-items: center;  
+    padding: 20px 40px;
+}
+.titulo input{
+    padding: 8px;
+    border-radius: 12px;
+    width: 300px;
+    
+}
+.descricao textarea{
+    padding: 8px;
+    border-radius: 12px;
+    width: 300px;
+    resize: none;
+}
+.data input{
+    padding: 8px;
+    border-radius: 12px;
+    width: 300px;
+}
+.btn-input button{
+    padding: 8px;
+    border-radius: 12px;
+    background: #DCDCDC;
+    width: 200px;
+}
+.btn-input button:hover{
+    background: #696969;
+}
+

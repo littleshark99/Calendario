@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Tarefa</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+
+  <body>
+    <div class="conteudo">
+      <div class="lista">
+        <h2 id="listtarefa">lista de tarefas</h2>
+        <ul id="listatarefa">
+          <li>
+            <span class="texto-tarefa">tarefa 1</span>
+            <span class="data-tarefa">data</span>
+            <div>
+              <button class="btnacao">Editar</button>
+              <button class="btnacao">Apagar</button>
+            </div>
+          </li>
+        </ul>         
+      </div>
+
+      <div class="calendario">
+        <div id="qualquercoisa">
+          <a class="btn-ant" id="btn-prev">&#10094;</a>
+          <h2 id="mes"></h2>
+          <a class="btn-prox" id="btn-next">&#10095;</a>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <td>Sab</td>
+              <td>Dom</td>
+              <td>Seg</td>
+              <td>Ter</td>
+              <td>Qua</td>
+              <td>Qui</td>
+              <td>Sex</td>
+            </tr>
+          </thead>
+          <tbody id="dias">
+            <tr>
+              <td class="mes-anterior"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="dia-atual">1</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td ></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="proximo-mes"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="calendario-ano">
+          <h2 id="ano">2022</h2>
+        </div>
+      </div>
+      <!--final calendario-->
+
+      <form class="form">
+        <div class="titulo">
+          <label for="input-titulo"><p>Titulo</p></label>
+          <input id="input-titulo" type="text" placeholder="titutlo" />
+        </div>
+
+        <div class="descricao">
+          <label for="input-descricao"><p>Descricao</p></label>
+          <textarea id="input-descricao" cols="5" maxlength="75" placeholder="descrição"></textarea>
+        </div>
+
+        <div class="data">
+          <label for="input-data"><p>Data</p></label>
+          <input id="input-data" type="text" />
+        </div>
+
+        <div class="btn-input">
+          <button type="submit" id="btn-add " >Adicionar</button>
+        </div>
+      </form>
+    </div>
+    <!--final conteudo-->
+  </body>
+</html>
