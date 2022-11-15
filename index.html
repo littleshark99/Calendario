@@ -1,29 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <script  src="script.js" defer></script>
     <title>Tarefa</title>
-    <link rel="stylesheet" href="style.css" type="text/css" />
-    <script type="text/javascript" src="script.js"></script>
-  </head>
+</head>
+<body>
 
-  <body>
-    <div class="conteudo">
-      <div class="lista">
-        <h2 id="listtarefa">lista de tarefas</h2>
-        <ul id="listatarefa">
-          <li>
-            <span class="texto-tarefa">tarefa 1</span>
-            <span class="data-tarefa">data</span>
-            <div>
-              <button class="btnacao">Editar</button>
-              <button class="btnacao">Apagar</button>
-            </div>
-          </li>
-        </ul>         
-      </div>
-
-      <div class="calendario">
+    <div class="calendario">
         <div id="qualquercoisa">
           <a class="btn-ant" id="btn-prev">&#10094;</a>
           <h2 id="mes"></h2>
@@ -93,29 +80,50 @@
           <h2 id="ano">2022</h2>
         </div>
       </div>
-      <!--final calendario-->
 
-      <form class="form">
-        <div class="titulo">
-          <label for="input-titulo"><p>Titulo</p></label>
-          <input id="input-titulo" type="text" placeholder="titutlo" />
+    <div class="todo-container">
+        <form id="todo-form">
+            <p>Adicione a sua Tarefa:</p>
+            <div class="form-control">
+                <input type="text" id="todo-input" placeholder="Oque voce vai fazer">
+                <input type="text" id="todo-input-data" placeholder="Data">
+                <button type="submit">Adicionar</button>
+            </div>
+        </form>
+        <form id="edit-form" class="hide">
+            <p>Edite a sua tarefa:</p>
+            <div class="form-control">
+                <input type="text" id="edit-input">
+                <button type="submit">Editar</button>
+            </div>
+            <button id="cancel-edit-btn">Cancelar</button>          
+        </form>
+        <div id="toolbar">
+            <div id="search">
+                <h4>Pesquisar:</h4>
+                    <form>
+                        <input type="text" id="search-input" placeholder="buscar">
+                        <button id="erase-button">Apagar</button>                       
+                    </form>
+            </div>
+            <div id="filter">
+                <h4>Filtrar</h4>
+                <select id="filter-select">
+                    <option value="all">Todos</option>
+                    <option value="done">Feitos</option>
+                    <option value="todo">A Fazer</option>
+                </select>
+            </div>
         </div>
-
-        <div class="descricao">
-          <label for="input-descricao"><p>Descricao</p></label>
-          <textarea id="input-descricao" cols="5" maxlength="75" placeholder="descrição"></textarea>
+        <div id="todo-list">
+            <div class="todo ">
+                <h3>Estou fazendo alguma coisa</h3>
+                <h4>data </h4>
+                <button class="finish-todo">Feito</button>
+                <button class="edit-todo">Editar</button>
+                <button class="remove-todo">Apagar</button>
+            </div>
         </div>
-
-        <div class="data">
-          <label for="input-data"><p>Data</p></label>
-          <input id="input-data" type="text" />
-        </div>
-
-        <div class="btn-input">
-          <button type="submit" id="btn-add " >Adicionar</button>
-        </div>
-      </form>
     </div>
-    <!--final conteudo-->
-  </body>
+</body>
 </html>

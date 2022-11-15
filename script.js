@@ -1,3 +1,138 @@
+// seleção de elementos
+const todoform = document.querySelector('#todo-form');
+const todoinput = document.querySelector('#todo-input');
+const todoinputdata = document.querySelector('#todo-input-data');
+const todolist = document.querySelector('#todo-list');
+const editform = document.querySelector('#edit-form');
+const editinput = document.querySelector('#edit-input');
+const canceleditbtn = document.querySelector('#cancel-edit-btn');
+
+let oldinputvalue;
+
+
+//função
+const savetodo = (Text) => {
+
+    const todo = document.createElement("div");
+    todo.classList.add("todo");
+
+    const todotitle = document.createElement('h3');
+    todotitle.innerHTML = Text;
+    todo.appendChild(todotitle);
+
+    const tododata = document.createElement('h4');
+    tododata.innerHTML = Text;
+    todo.appendChild(tododata);
+
+    const donebtn =  document.createElement("button");
+    donebtn.classList.add("finish-todo");
+    donebtn.innerHTML = 'Feito';
+    todo.appendChild(donebtn);
+
+    const editbtn =  document.createElement("button");
+    editbtn.classList.add("edit-todo");
+    editbtn.innerHTML = 'Editar';
+    todo.appendChild(editbtn);
+
+    const deletebtn =  document.createElement("button");
+    deletebtn.classList.add("remove-todo");
+    deletebtn.innerHTML = 'Excluir';
+    todo.appendChild(deletebtn);
+
+    todolist.appendChild(todo);
+
+    todoinput.value = "";
+    todoinputdata.value = "";
+    
+};
+
+const toggleforms = () =>{
+    editform.classList.toggle("hide");
+    todoform.classList.toggle("hide");
+    todolist.classList.toggle("hide");
+
+}
+
+const updatetodo = (Text) =>{
+
+    const todos = document.querySelectorAll(".todo");
+
+    todos.forEach((todo) =>{
+        
+        let todotitle = todo.querySelector("h3");
+
+        if(todotitle.innerText === oldinputvalue){
+            todotitle.innerText = Text;
+        }
+
+    });
+
+}
+
+
+
+// eventos
+todoform.addEventListener("submit",(e)=>{
+    e.preventDefault();
+
+    const inputvalue = todoinput.value;
+    const inputdata = todoinputdata.value;
+    
+    if(inputvalue && inputdata){
+        
+        savetodo(inputvalue ,inputdata);
+        
+    }
+
+});
+
+document.addEventListener("click", (e)=>{
+
+    const targetel = e.target;
+    const parentel = targetel.closet("div");
+    let todotitle;
+
+    if(parentel && parentel.querySelector("h3")){
+        todotitle = parentel.querySelector("h3").innerText;
+    }
+
+    if(targetel.classList.contains("finish-todo")){
+            parentel.classList.toggle("done");
+
+    }
+
+    if(targetel.classList.contains("remove-todo")){
+        parentel.remove();
+    }
+
+    if(targetel.classList.contains("edit-todo")){
+        toggleforms();
+
+        editinput.value = todotitle;
+        oldinputvalue = todotitle;
+    }
+
+});
+
+canceleditbtn.addEventListener("click",(e)=>{
+    e.preventDefault();
+
+    todoform();
+});
+
+editform.addEventListener("submit", (e)=>{
+    e.preventDefault();
+
+    const editinputvalue = editinput.value;
+
+    if(editinputvalue){
+        updatetodo(editinputvalue)
+    }
+    toggleforms();
+
+});
+
+// inicio calendario
 document.addEventListener('DOMContentLoaded',function(){
     const monthsBR = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
     const tabledays = document.getElementById('dias');    
@@ -58,66 +193,3 @@ document.addEventListener('DOMContentLoaded',function(){
 
     getDaysCalendar(1,2022);
 });  
-/*Final calendario*/
-
-let titulo = document.querySelector('#input-titulo');
-let descricao = document.querySelector('#input-descricao');
-let data = document.querySelector('#input-data');
-let btnadd = document.querySelector('#btn-add ');
-let listatarefa= document.querySelector('#listatarefa');
-
-
-btnadd.addEventListener('click', (e) =>{
-
-    let tarefa = {
-        nome : titulo.value,
-        data : data.value,
-        id: gerarid(),
-    }
-    adicionartarefa(tarefa);
-});
-
-function gerarid(){
-    return Math.floor(Math.random()*3000);
-}
-
-function adicionartarefa(tarefa){
-
-    let li = criartag(tarefa);
-    listatarefa.appendChild(li);
-
-}
-
-function criartag(tarefa){
-
-    let li = document.createElement('li');
-
-    let titulospan = document.createElement('span');
-    titulospan.classList('texto-tarefa');
-    titulospan.innerHTML = tarefa.nome;
-
-    let dataspan = document.createElement('span');
-    dataspan.classList('data-tarefa');
-    dataspan.innerHTML = tarefa.data;
-
-    let div = document.createElement('div');
-
-    let btneditar = document.createElement('button');
-    btneditar.classList.add('btnacao');
-    btneditar.innerHTML = 'Editar';
-
-
-    let btnexcluir = document.createElement('button');
-    btnexcluir.classList.add('btnacao');
-    btnexcluir.innerHTML = 'Excluir';
-
-    div.appendChild(btneditar);
-    div.appendChild(btnexcluir);
-
-    li.appendChild(titulospan);
-    li.appendChild(dataspan)
-    li.appendChild(div);
-    return li;
-
-}
-
