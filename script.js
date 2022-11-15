@@ -11,7 +11,7 @@ let oldinputvalue;
 
 
 //função
-const savetodo = (Text) => {
+const savetodo = (Text,Text2) => {
 
     const todo = document.createElement("div");
     todo.classList.add("todo");
@@ -21,7 +21,7 @@ const savetodo = (Text) => {
     todo.appendChild(todotitle);
 
     const tododata = document.createElement('h4');
-    tododata.innerHTML = Text;
+    tododata.innerHTML = Text2;
     todo.appendChild(tododata);
 
     const donebtn =  document.createElement("button");
